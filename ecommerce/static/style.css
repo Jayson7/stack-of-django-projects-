@@ -1,0 +1,8 @@
+body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    background-color: rgb(78, 78, 121);
+    font-family: cursive;
+}
