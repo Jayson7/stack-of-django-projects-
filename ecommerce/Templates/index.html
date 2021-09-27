@@ -137,55 +137,76 @@
                             </p>
                             <p class="text-success ml-2">{{i.view_count}} views</p>
                         </div>
-                        <a href="{% url " addtocart " i.pk %}" class="btn btn-primary">Add to cart</a>
-                        <a href="#" class="btn btn-primary">View</a>
-                    </div>
-                </div>
+                        <a href="{% url ' addtocart ' i.pk %}" class="btn btn-primary">Add to cart</a
+              >
+              <a href="{% url ' details ' i.pk %}" class="btn btn-primary"
+                >View</a
+              >
             </div>
-            {% endfor %} {% else %}
-            <h1 class="text-center">No producs available for now, check later</h1>
-            {% endif %}
+          </div>
         </div>
+        {% endfor %} {% else %}
+        <h1 class="text-center">No producs available for now, check later</h1>
+        {% endif %}
+      </div>
     </div>
     {% endblock %}
 
     <section class="section2">
-        <div class="row">
-            <div class="col-sm-6 col-md-6">
-                <div class="container bg-white text-dark py-2">
-                    <h1 class="text-center">Why Shop With Us ?</h1>
-                    <div class="box-wrap">
-                        <div class="box">
-                            <h6 class="">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam consectetur deleniti placeat nulla earum nemo quis unde magnam illum neque iure rerum repudiandae consequatur, eveniet, tenetur obcaecati dolore assumenda nostrum? Voluptas unde, architecto
-                                nulla, aspernatur expedita sapiente dolorum rerum quam, non ad error culpa quia voluptatibus et id fuga impedit!
-                            </h6>
-                        </div>
-                        <div class="box">
-                            <h6 class="">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam consectetur deleniti placeat nulla earum nemo quis unde magnam illum neque iure rerum repudiandae consequatur, eveniet, tenetur obcaecati dolore assumenda nostrum? Voluptas unde, architecto
-                                nulla, aspernatur expedita sapiente dolorum rerum quam, non ad error culpa quia voluptatibus et id fuga impedit!
-                            </h6>
-                        </div>
-                        <div class="box">
-                            <h6 class="">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam consectetur deleniti placeat nulla earum nemo quis unde magnam illum neque iure rerum repudiandae consequatur, eveniet, tenetur obcaecati dolore assumenda nostrum? Voluptas unde, architecto
-                                nulla, aspernatur expedita sapiente dolorum rerum quam, non ad error culpa quia voluptatibus et id fuga impedit!
-                            </h6>
-                        </div>
-                    </div>
-                </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-6">
+          <div class="container bg-white text-dark py-2">
+            <h1 class="text-center">Why Shop With Us ?</h1>
+            <div class="box-wrap">
+              <div class="box">
+                <h6 class="">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quibusdam consectetur deleniti placeat nulla earum nemo quis
+                  unde magnam illum neque iure rerum repudiandae consequatur,
+                  eveniet, tenetur obcaecati dolore assumenda nostrum? Voluptas
+                  unde, architecto nulla, aspernatur expedita sapiente dolorum
+                  rerum quam, non ad error culpa quia voluptatibus et id fuga
+                  impedit!
+                </h6>
+              </div>
+              <div class="box">
+                <h6 class="">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quibusdam consectetur deleniti placeat nulla earum nemo quis
+                  unde magnam illum neque iure rerum repudiandae consequatur,
+                  eveniet, tenetur obcaecati dolore assumenda nostrum? Voluptas
+                  unde, architecto nulla, aspernatur expedita sapiente dolorum
+                  rerum quam, non ad error culpa quia voluptatibus et id fuga
+                  impedit!
+                </h6>
+              </div>
+              <div class="box">
+                <h6 class="">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quibusdam consectetur deleniti placeat nulla earum nemo quis
+                  unde magnam illum neque iure rerum repudiandae consequatur,
+                  eveniet, tenetur obcaecati dolore assumenda nostrum? Voluptas
+                  unde, architecto nulla, aspernatur expedita sapiente dolorum
+                  rerum quam, non ad error culpa quia voluptatibus et id fuga
+                  impedit!
+                </h6>
+              </div>
             </div>
-            <div class="col-sm-6 col-md-6">
-                <div class="img-container">
-                    <img src="{% static 'image/little.png' %}" alt="sorry oh" srcset="" />
-                </div>
-            </div>
+          </div>
         </div>
+        <div class="col-sm-6 col-md-6">
+          <div class="img-container">
+            <img
+              src="{% static 'image/little.png' %}"
+              alt="sorry oh"
+              srcset=""
+            />
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="section3"></section>
     <footer class="footer"></footer>
-</body>
-
+  </body>
 </html>
