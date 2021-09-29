@@ -6,3 +6,18 @@ body {
     background-color: rgb(78, 78, 121);
     font-family: cursive;
 }
+
+.section1 {
+    width: 100vw;
+    height: 100%;
+    margin-top: 10vh;
+}
+
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-weight: 900;
+}

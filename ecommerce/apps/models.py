@@ -1,3 +1,47 @@
 from django.db import models
-
+from django.contrib.auth.models import User 
 # Create your models here.
+
+
+class Categories(models.Model):
+    Choices = {
+        ("food", "food"),
+        ("clothes", "clothes"),
+        ("shoes", "shoes"),
+    }
+    category = models.CharField(choices=Choices, default="selcect a category", max_length=40)
+
+    # stringify output
+    def __str__(self):
+        return self.category
+    
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Category"
+        
+
+
+# products
+class Product(models.Model):
+    name = models.CharField(max_length=400)
+    main_price = models.PositiveIntegerField()
+    discounted_price = models.PositiveIntegerField()
+    view_count = models.PositiveIntegerField(default=0)
+    image = models.ImageField(upload_to="media/images")
+    
+    # stringify output
+    def __str__(self):
+        return self.name
+    
+    # cart
+class Cart(models.Model):
+    created_by = models.OneToOneField(User, on_delete=models.CASCADE ) 
+    product = models.ManyToManyField(Product, verbose_name="products" )
+    total = models.PositiveIntegerField(default=0)
+    creted = models.DateTimeField(auto_now_add=True)
+    
+    # stringify output
+    def __str__(self):
+       
+        return str(self.created_by)
+
