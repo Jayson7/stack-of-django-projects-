@@ -32,16 +32,40 @@ class Product(models.Model):
     # stringify output
     def __str__(self):
         return self.name
+
+# cart item
+class CartItem(models.Model):
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE ) 
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="product")
+    amount = models.PositiveIntegerField(default=0)
+    created = models.DateTimeField(auto_now_add=True) 
+    quantity = models.PositiveBigIntegerField(default=1)
+   
     
-    # cart
-class Cart(models.Model):
-    created_by = models.OneToOneField(User, on_delete=models.CASCADE ) 
-    product = models.ManyToManyField(Product, verbose_name="products" )
-    total = models.PositiveIntegerField(default=0)
-    creted = models.DateTimeField(auto_now_add=True)
     
     # stringify output
     def __str__(self):
        
-        return str(self.created_by)
+        return str(self.created_by) + " " + str(self.amount)
+
+    
+   
+
+
+    
+    # cart
+
+class Cart(models.Model):
+    created_by = models.OneToOneField(User, on_delete=models.CASCADE ) 
+    items = models.ManyToManyField(CartItem, verbose_name="items" )
+    total = models.PositiveIntegerField(default=0)
+    created = models.DateTimeField(auto_now_add=True) 
+    
+    
+    
+    # stringify output
+    def __str__(self):
+        # self.total = total
+        return str(self.created) 
+
 
