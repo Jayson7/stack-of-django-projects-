@@ -27,10 +27,19 @@ def addtocart (request, pk):
         print("sent in a product")
         product_in_question_pk = Product.objects.filter(pk=pk)
         product_in_question = Product.objects.filter(pk=pk).get()
+        # print(cartitemall)
+        # print(product_in_question)
+        product_of_cart_in_question_pk = CartItem.objects.filter(product=product_in_question)
         
-        
+        if product_of_cart_in_question_pk.exists():    
+            # product_of_cart_in_question_pk = CartItem.objects.filter(pk=pk)
+            print(" jayson this shit is in cart")
+            print(product_of_cart_in_question_pk)
             
-        if not product_in_question_pk.exists():
+            # cart_item_in_question.save()
+            # pass
+    
+        if not product_of_cart_in_question_pk.exists():
             
             
             print(product_in_question.discounted_price)
@@ -42,10 +51,6 @@ def addtocart (request, pk):
                 amount = product_in_question.discounted_price,
                 quantity = 1,
             ).save()
-        if product_in_question_pk.exists():    
-            print(product_in_question)
-            
-            
     else:
         pass
         

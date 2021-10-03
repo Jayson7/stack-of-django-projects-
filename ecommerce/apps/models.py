@@ -46,7 +46,7 @@ class CartItem(models.Model):
     # stringify output
     def __str__(self):
        
-        return str(self.created_by) + " " + str(self.amount)
+        return str(self.product)
 
     
    
