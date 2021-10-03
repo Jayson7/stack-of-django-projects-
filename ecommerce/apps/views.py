@@ -23,24 +23,32 @@ def addtocart (request, pk):
     products = Product 
     productall = Product.objects.all()
     if request.user.is_authenticated:
+        
         print("sent in a product")
-        product_in_question = Product.objects.filter(pk=pk)
-        print(product_in_question)
-        # print(product_in_question) 
-        print(product_in_question)
-        cart_item_in_question = CartItem(
-            created_by = request.user,
-            product = product_in_question,
-            # amount = 
-        )    
-        cart_item_in_question.save()
+        product_in_question_pk = Product.objects.filter(pk=pk)
+        product_in_question = Product.objects.filter(pk=pk).get()
         
-        # cart_item_in_question.created_by([request.user])
-        # cart_item_in_question.product.set(product_in_question)
-        # cart_item_in_question.save()
+        
+            
+        if not product_in_question_pk.exists():
+            
+            
+            print(product_in_question.discounted_price)
+            # print(product_in_question) 
+            print(product_in_question)
+            cart_item_in_question = CartItem(
+                created_by = request.user,
+                product = product_in_question,
+                amount = product_in_question.discounted_price,
+                quantity = 1,
+            ).save()
+        if product_in_question_pk.exists():    
+            print(product_in_question)
+            
+            
     else:
-        
         pass
+        
         
     return redirect("/")
 
