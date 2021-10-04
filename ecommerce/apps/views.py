@@ -17,8 +17,9 @@ def productdetails(request, pk):
     
     return render(request, "productdetails.html", context)
 
+
 def addtocart (request, pk):
-    cartmainmodel = Cart
+    
     cartitemall = CartItem.objects.all()
     products = Product 
     productall = Product.objects.all()
@@ -30,17 +31,25 @@ def addtocart (request, pk):
         # print(cartitemall)
         # print(product_in_question)
         product_of_cart_in_question_pk = CartItem.objects.filter(product=product_in_question)
-        
+        # product_of_cart_in_question_pk_all = CartItem.objects.filter(product=product_in_question).get()
         if product_of_cart_in_question_pk.exists():    
+            product_of_cart_in_question_pk_all = CartItem.objects.filter(product=product_in_question).get()
+       
             # product_of_cart_in_question_pk = CartItem.objects.filter(pk=pk)
             print(" jayson this shit is in cart")
             print(product_of_cart_in_question_pk)
+            product_of_cart_in_question_pk_all.quantity +=1
+            product_of_cart_in_question_pk_all.save()
             
-            # cart_item_in_question.save()
-            # pass
-    
+            total_amount = product_of_cart_in_question_pk_all.quantity * product_of_cart_in_question_pk_all.amount
+        
+            product_of_cart_in_question_pk_all.amount = total_amount
+            product_of_cart_in_question_pk_all.save()
+                
+                
+            product_of_cart_in_question_pk_all.save()
+
         if not product_of_cart_in_question_pk.exists():
-            
             
             print(product_in_question.discounted_price)
             # print(product_in_question) 
@@ -51,6 +60,14 @@ def addtocart (request, pk):
                 amount = product_in_question.discounted_price,
                 quantity = 1,
             ).save()
+            product_of_cart_in_question_pk_all = CartItem.objects.filter(product=product_in_question).get()
+            
+            total_amount = product_of_cart_in_question_pk_all.quantity * product_of_cart_in_question_pk_all.amount
+            product_of_cart_in_question_pk_all.amount = total_amount
+            product_of_cart_in_question_pk_all.save()
+       
+            
+     
     else:
         pass
         
@@ -58,12 +75,6 @@ def addtocart (request, pk):
     return redirect("/")
 
 def cart(request):
-    context = {}
-    context["cartmainmodel"] = Cart
-    context["cartitemall"] = CartItem.objects.all()
-    context["cart"] = Cart.objects.all()    
-    products = Product 
-    productall = Product.objects.all()
-   
     
-    return render(request, "cart.html", context)
+    
+    return render(request, "cart.html")

@@ -54,18 +54,3 @@ class CartItem(models.Model):
 
     
     # cart
-
-class Cart(models.Model):
-    created_by = models.OneToOneField(User, on_delete=models.CASCADE ) 
-    items = models.ManyToManyField(CartItem, verbose_name="items" )
-    total = models.PositiveIntegerField(default=0)
-    created = models.DateTimeField(auto_now_add=True) 
-    
-    
-    
-    # stringify output
-    def __str__(self):
-        # self.total = total
-        return str(self.created) 
-
-
