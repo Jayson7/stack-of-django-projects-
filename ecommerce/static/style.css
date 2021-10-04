@@ -21,3 +21,9 @@ body {
 .card-title {
     font-weight: 900;
 }
+
+.fa .sup {
+    font-weight: 900;
+    width: 15px;
+    font-size: 15px;
+}

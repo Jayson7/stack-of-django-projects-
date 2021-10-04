@@ -6,20 +6,35 @@ from django.contrib.auth.models import User
 
 def homepage(request):
     context = {}
+
+    all_cart_products = CartItem.objects.all()
+    
+    counter = all_cart_products.count()
+    context["counter"] = counter
+    # context = {}
     product = Product.objects.all()
     context["product"] = product
     return render(request, "index.html", context)
 
 def productdetails(request, pk):
-    
     context = {}
+    
+    all_cart_products = CartItem.objects.all()
+    
+    counter = all_cart_products.count()
+    context["counter"]  = counter  
+    
     context["product"] = Product.objects.filter(pk = pk)
     
     return render(request, "productdetails.html", context)
 
 
 def addtocart (request, pk):
+    context ={}
+    all_cart_products = CartItem.objects.all()
     
+    counter = all_cart_products.count()
+    context["counter"] = counter
     cartitemall = CartItem.objects.all()
     products = Product 
     productall = Product.objects.all()
@@ -75,6 +90,13 @@ def addtocart (request, pk):
     return redirect("/")
 
 def cart(request):
+    product = Product.objects.all()
     
+    all_cart_products = CartItem.objects.all()
     
-    return render(request, "cart.html")
+    context = {}
+    context['cart_products_all'] = all_cart_products 
+    
+    counter = all_cart_products.count()
+    context["counter"] = counter
+    return render(request, "cart.html", context )
