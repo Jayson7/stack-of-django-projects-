@@ -9,7 +9,7 @@
     <meta name="description" content=" we sell and buy products of any kind with fast delivery included on all services " />
     <meta name="author" content="jayson" />
     <meta name="generator" content="Shop" />
-    <title>{% block title %} SHOP - All products {% endblock %}</title>
+    <title>{% block title %} SHOPERZ- All products {% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" />
@@ -21,61 +21,50 @@
 
 <body>
     {% block body %}
+    <div class="alert mb-0" role="alert">
+        <strong>primary</strong>
+    </div>
     <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <a class="navbar-brand ml-2" href="#">SHOP </a>
+            <a class="navbar-brand ml-2" href="{% url 'home' %}">SHOP<span>ERZ</span>
+        </a>
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                     <li class="nav-item mr-5">
-                        <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a
+                        <a class="nav-link text-white" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a
               >
             </li>
             <li class="nav-item mr-5">
-              <a class="nav-link text-white" href="#">Link</a>
+              <a class="nav-link text-white" href="#">Track Order</a>
                     </li>
                     <li class="nav-item mr-5">
-                        <a class="nav-link text-white" href="#">Link</a>
+                        <a class="nav-link text-white" href="#">Store</a>
+                    </li>
+                    <li class="nav-item mr-5">
+                        <a class="nav-link text-white" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item mr-5">
+                        <a class="nav-link text-white" href="#">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{% url 'cart' %}">Cart <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                        <a class="nav-link text-white" href="{% url 'cart' %}">Cart
+                <i class="fa fa-cart-plus" aria-hidden="true">
+                  <sup class="bg-success sup" style="font-size: 20px"
+                    >{{counter}}</sup
+                  >
+                </i>
               </a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
-
-    <div class="section1">
-        <div class="container-fluid">
-            <div class="row mt-4 justify-content-center align-items-center">
-                {% for i in product %}
-                <div class="m-2 col-sm-6 mt-3 col-md-4 col-lg-3">
-                    <div class="card" style="width: 18rem">
-                        <img src="{{i.image.url }}" class="card-img-top" alt="sorry" />
-                        <div class="card-body">
-                            <h5 class="card-title">{{i.name}}</h5>
-                            <strike class="card-text text-warning">N {{i.main_price}}</strike
-                >
-                <p class="card-text text-success">
-                  <strike>N</strike> {{i.discounted_price}}
-                            </p>
-                            <a href="{% url 'addtocart' i.pk %}" class="btn btn-primary">Add to cart</a
-                >
-
-                <a href="{% url 'details' i.pk %}" class="btn btn-primary ml-2"
-                  >View product</a
-                >
-              </div>
-            </div>
-            <br /><br />
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
+    <div class="landing-page"></div>
+    <div class="section1"></div>
     {% endblock %}
-  </body>
+</body>
+
 </html>

@@ -7,23 +7,50 @@ body {
     font-family: cursive;
 }
 
-.section1 {
+
+/* landing page */
+
+.alert {
+    background-color: rgb(15, 15, 24);
     width: 100vw;
-    height: 100%;
-    margin-top: 10vh;
+    color: rgb(245, 245, 247);
 }
 
-.card img {
-    height: 200px;
-    object-fit: cover;
-}
-
-.card-title {
+.navbar-brand {
     font-weight: 900;
+    font-size: 1.5rem;
 }
 
-.fa .sup {
+.navbar-brand span {
     font-weight: 900;
-    width: 15px;
-    font-size: 15px;
+    font-size: 1.5rem;
+    color: rgba(84, 78, 104, 90);
 }
+
+.landing-page {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient( to top, rgb(245, 245, 247) -10%, rgba(84, 78, 104, 0) 9%), url("../static/image/jakob-owens-Rkfpms9o5fk-unsplash_1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* ends */
+
+
+/*  section1*/
+
+
+/* ends */
+
+
+/* cart.html */
+
+.img-product-details img {
+    height: 70vh;
+}
+
+
+/* ends */
