@@ -47,8 +47,10 @@ class CartItem(models.Model):
     def __str__(self):
        
         return str(self.product)
-
     
+    # grand total
+class GrandTotal(models.Model):
+    total = models.PositiveIntegerField(default=0)
    
 
 

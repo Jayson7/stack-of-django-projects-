@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import *
 from django.contrib.auth.models import User 
+from django.db.models import Sum 
 
 # Create your views here.
 
@@ -99,4 +100,7 @@ def cart(request):
     
     counter = all_cart_products.count()
     context["counter"] = counter
+    context["grandtotal"] = all_cart_products.aggregate(Sum("amount"))
+    grandtotal = context["grandtotal"]
+    print(grandtotal)
     return render(request, "cart.html", context )
