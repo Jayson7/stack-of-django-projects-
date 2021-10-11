@@ -57,14 +57,12 @@ def addtocart (request, pk):
             product_of_cart_in_question_pk_all.quantity +=1
             product_of_cart_in_question_pk_all.save()
             
-            total_amount = product_of_cart_in_question_pk_all.quantity * product_of_cart_in_question_pk_all.amount
+            total_amount = product_of_cart_in_question_pk_all.quantity * product_in_question_pk.discounted_price
         
             product_of_cart_in_question_pk_all.amount = total_amount
             product_of_cart_in_question_pk_all.save()
                 
                 
-            product_of_cart_in_question_pk_all.save()
-
         if not product_of_cart_in_question_pk.exists():
             
             print(product_in_question.discounted_price)
@@ -78,7 +76,7 @@ def addtocart (request, pk):
             ).save()
             product_of_cart_in_question_pk_all = CartItem.objects.filter(product=product_in_question).get()
             
-            total_amount = product_of_cart_in_question_pk_all.quantity * product_of_cart_in_question_pk_all.amount
+            total_amount = product_of_cart_in_question_pk_all.quantity * product_in_question.discounted_price
             product_of_cart_in_question_pk_all.amount = total_amount
             product_of_cart_in_question_pk_all.save()
        

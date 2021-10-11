@@ -3,15 +3,31 @@ body {
     padding: 0;
     scroll-behavior: smooth;
     overflow-x: hidden;
-    background-color: rgb(78, 78, 121);
+    /* background-color: rgb(78, 78, 121); */
     font-family: cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
 
 /* landing page */
 
 .alert {
-    background-color: rgb(15, 15, 24);
+    margin: 0;
+    width: 100vw;
+}
+
+header {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.alert {
+    background-color: rgb(15, 15, 20);
     width: 100vw;
     color: rgb(245, 245, 247);
 }
@@ -28,29 +44,45 @@ body {
 }
 
 .landing-page {
-    height: 100vh;
     width: 100vw;
-    background: linear-gradient( to top, rgb(245, 245, 247) -10%, rgba(84, 78, 104, 0) 9%), url("../static/image/jakob-owens-Rkfpms9o5fk-unsplash_1.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    height: 100%;
+    /* margin-top: 4px; */
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.wrapper {
+    /* background: black; */
+    /* align-items: stretch; */
+    height: auto;
+    text-align: center;
+    height: auto;
+    width: 100%;
+}
+
+.landing-page img {
+    object-fit: contain;
+    object-position: center;
+    height: 100%;
+    margin-top: -10vh;
+    width: 100%;
+}
+
+@media screen and (max-width) {}
 
 
 /* ends */
 
 
-/*  section1*/
+/* section1*/
 
 
 /* ends */
 
 
 /* cart.html */
-
-.img-product-details img {
-    height: 70vh;
-}
 
 
 /* ends */
