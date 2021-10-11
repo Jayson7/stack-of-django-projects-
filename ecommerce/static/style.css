@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 body {
     margin: 0;
     padding: 0;
@@ -56,10 +57,23 @@ header {
 .wrapper {
     /* background: black; */
     /* align-items: stretch; */
+    font-weight: 500;
     height: auto;
     text-align: center;
     height: auto;
     width: 100%;
+}
+
+.wrapper h1 {
+    font-family: cursive;
+    font-weight: 900;
+    font-size: 2.5rem;
+    text-transform: capitalize;
+}
+
+.wrapper h5 {
+    font-family: cursive;
+    font-weight: 500;
 }
 
 .landing-page img {
@@ -70,7 +84,21 @@ header {
     width: 100%;
 }
 
-@media screen and (max-width) {}
+.icons .fa {
+    font-size: 20px;
+    width: 40px;
+}
+
+.icons .fa:hover {
+    background: rgb(68, 68, 139);
+    /* width: 40px; */
+    border-radius: 9px;
+}
+
+.btn {
+    color: #fff;
+    background-color: rgb(12, 3, 5);
+}
 
 
 /* ends */
