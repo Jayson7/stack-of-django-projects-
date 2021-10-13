@@ -119,12 +119,21 @@ header {
     margin-top: 20vh;
 }
 
+.box-wrap {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 1;
+    justify-content: center;
+    align-items: center;
+}
+
 .box {
     margin: 20px;
-    border: 2px solid rgb(68, 68, 139);
-    animation: boxtweak 10s ease-in-out infinite;
-    transition: all ease-in-out 5s;
+    border: 5px solid rgb(68, 68, 139);
+    animation: boxtweak 5s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+    /* transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 5s; */
     height: 200px;
+    text-align: center;
     display: flex;
     align-items: center;
 }
@@ -134,23 +143,52 @@ header {
 }
 
 @keyframes boxtweak {
-    25% {
-        border-left: none;
-        transition: all ease-in-out 5s;
-    }
-    50% {
-        border-top: none;
-        transition: all ease-in-out 5s;
-    }
     75% {
-        border-right: none;
-        transition: all ease-in-out 5s;
+        border: none;
+        transition: border ease-in-out 5s;
     }
     100% {
-        border-bottom: none;
-        transition: all ease-in-out 5s;
+        border: none;
+        transition: border cubic-bezier(0.445, 0.05, 0.55, 0.95) 5s;
     }
 }
+
+.img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-container img {
+    object-position: center;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    margin-top: 5vh;
+}
+
+
+/* ends */
+
+
+/* section 3 */
+
+.section3 {
+    width: 100%;
+    height: 100vh;
+}
+
+
+/* footer */
+
+.footer {
+    height: 50vh;
+    width: 100%;
+    background-color: rgb(12, 3, 5);
+}
+
+
+/* ends */
 
 
 /* ends */
