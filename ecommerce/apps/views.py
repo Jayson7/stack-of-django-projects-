@@ -13,7 +13,7 @@ def homepage(request):
     counter = all_cart_products.count()
     context["counter"] = counter
     # context = {}
-    product = Product.objects.all()
+    product = Product.objects.all()[:6]
     context["product"] = product
     return render(request, "index.html", context)
 
