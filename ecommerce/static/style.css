@@ -29,7 +29,6 @@ header {
 
 .alert {
     background-color: rgb(15, 15, 20);
-    width: 100vw;
     color: rgb(245, 245, 247);
 }
 
@@ -46,27 +45,17 @@ header {
 
 .landing-page {
     width: 100vw;
-    height: 100%;
-    /* margin-top: 4px; */
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-@media screen and (max-width: 700px) {
-    .landing-page {
-        margin-top: 10vh;
-    }
+    height: auto;
+    margin-top: 30vh;
+    /* margin-bottom: 15vh; */
 }
 
 .wrapper {
     /* background: black; */
     /* align-items: stretch; */
     font-weight: 500;
-    height: auto;
     text-align: center;
-    height: auto;
+    height: 100%;
     width: 100%;
 }
 
@@ -111,6 +100,57 @@ header {
 
 
 /* section1*/
+
+.section1 {
+    margin-top: 10px;
+    height: auto;
+    width: 100%;
+}
+
+
+/* ends */
+
+
+/* section2 */
+
+.section2 {
+    width: 100%;
+    height: auto;
+    margin-top: 20vh;
+}
+
+.box {
+    margin: 20px;
+    border: 2px solid rgb(68, 68, 139);
+    animation: boxtweak 10s ease-in-out infinite;
+    transition: all ease-in-out 5s;
+    height: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.section2 .container {
+    height: auto;
+}
+
+@keyframes boxtweak {
+    25% {
+        border-left: none;
+        transition: all ease-in-out 5s;
+    }
+    50% {
+        border-top: none;
+        transition: all ease-in-out 5s;
+    }
+    75% {
+        border-right: none;
+        transition: all ease-in-out 5s;
+    }
+    100% {
+        border-bottom: none;
+        transition: all ease-in-out 5s;
+    }
+}
 
 
 /* ends */

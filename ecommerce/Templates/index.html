@@ -22,9 +22,9 @@
 <body>
     {% block body %}
     <div class="alert mb-0" role="alert">
-        <div class="row">
+        <div class="row d-flex">
             <div class="col-sm-6 col-md-6">
-                <div class="phone">
+                <div class="phone text-success">
                     <i class="fa mr-2 fa-phone" aria-hidden="true"></i>
                     <span>+2348116336975</span>
                 </div>
@@ -41,7 +41,7 @@
         </div>
     </div>
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand ml-2" href="{% url 'home' %}">SHOP<span>ERZ</span>
         </a>
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
@@ -90,32 +90,39 @@
             </div>
         </nav>
     </header>
-    <div class="landing-page">
-        <div class="row">
-            <div class="col-sm-6 col-md-6">
-                <img src="{% static 'image/home.png' %}" alt="sorry" />
-            </div>
-            <div class="col-sm-5 col-md-5 mt-3 mb-5">
-                <div class="wrapper p-1">
-                    <h1 class="p-2">
-                        We sell <span class="text-success">explicit</span> products at affordable price
-                    </h1>
-                    <h5 class="p-2">Nice product <span>friendly fees</span></h5>
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam, blanditiis. lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, molestias?
-                    </p>
-                    <div class="col p-4">
-                        <div class="btn bg-warning text-dark m-2">Shop Now</div>
-                        <div class="btn">Categories</div>
+    <div class="landing-page mt-5">
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <img src="{% static 'image/home.png' %}" alt="sorry" />
+                </div>
+                <div class="col-sm-6 col-md-6 mb-5 mt-5">
+                    <div class="wrapper px-3 align-items-center">
+                        <h1 class="py-2">
+                            We sell <span class="text-success">explicit</span> products at affordable price
+                        </h1>
+                        <h5 class="py-2">Nice product <span>friendly fees</span></h5>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam, blanditiis. lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, molestias?
+                        </p>
+                        <div class="col p-4">
+                            <div class="btn bg-warning text-dark m-2">Shop Now</div>
+                            <div class="btn">Categories</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="section1">
-        <div class="row bg-warning align-items-center justify-content-center">
+        <div class="row bg-warning">
             {% if product %} {% for i in product %}
-            <div class="col-sm-6 col-md-4">
+            <div class="
+            col-sm-6 col-md-4
+            d-flex
+            align-items-center
+            justify-content-center
+          ">
                 <div class="card m-3" style="width: 18rem">
                     <img src="..." class="card-img-top" alt="..." />
                     <div class="card-body">
@@ -133,6 +140,35 @@
         </div>
     </div>
     {% endblock %}
+
+    <section class="section2">
+        <div class="row">
+            <div class="col-sm-6 col-md-6">
+                <div class="container bg-white text-dark py-2">
+                    <h1 class="text-center">Why Shop With Us ?</h1>
+                    <div class="box">
+                        <h6 class="">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam consectetur deleniti placeat nulla earum nemo quis unde magnam illum neque iure rerum repudiandae consequatur, eveniet, tenetur obcaecati dolore assumenda nostrum? Voluptas unde, architecto
+                            nulla, aspernatur expedita sapiente dolorum rerum quam, non ad error culpa quia voluptatibus et id fuga impedit!
+                        </h6>
+                    </div>
+                    <div class="box">
+                        <h6 class="">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam consectetur deleniti placeat nulla earum nemo quis unde magnam illum neque iure rerum repudiandae consequatur, eveniet, tenetur obcaecati dolore assumenda nostrum? Voluptas unde, architecto
+                            nulla, aspernatur expedita sapiente dolorum rerum quam, non ad error culpa quia voluptatibus et id fuga impedit!
+                        </h6>
+                    </div>
+                    <div class="box">
+                        <h6 class="">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam consectetur deleniti placeat nulla earum nemo quis unde magnam illum neque iure rerum repudiandae consequatur, eveniet, tenetur obcaecati dolore assumenda nostrum? Voluptas unde, architecto
+                            nulla, aspernatur expedita sapiente dolorum rerum quam, non ad error culpa quia voluptatibus et id fuga impedit!
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6"></div>
+        </div>
+    </section>
 </body>
 
 </html>
