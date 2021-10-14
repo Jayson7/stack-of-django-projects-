@@ -130,7 +130,14 @@
                         <p class="card-text">
                             Some quick example text to build on the card title and make up the bulk of the card's content.
                         </p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="d-flex">
+                            <p class="text-success mr-2">{{i.discounted_price}}</p>
+                            <p>
+                                <strike class="text-danger">{{i.main_price}}</strike>
+                            </p>
+                        </div>
+                        <a href="#" class="btn btn-primary">Add to cart</a>
+                        <a href="#" class="btn btn-primary">View</a>
                     </div>
                 </div>
             </div>
