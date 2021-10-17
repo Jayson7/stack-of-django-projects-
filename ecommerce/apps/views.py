@@ -50,14 +50,14 @@ def addtocart (request, pk):
         # product_of_cart_in_question_pk_all = CartItem.objects.filter(product=product_in_question).get()
         if product_of_cart_in_question_pk.exists():    
             product_of_cart_in_question_pk_all = CartItem.objects.filter(product=product_in_question).get()
-       
+            
             # product_of_cart_in_question_pk = CartItem.objects.filter(pk=pk)
             print(" jayson this shit is in cart")
             print(product_of_cart_in_question_pk)
             product_of_cart_in_question_pk_all.quantity +=1
             product_of_cart_in_question_pk_all.save()
             
-            total_amount = product_of_cart_in_question_pk_all.quantity * product_in_question_pk.discounted_price
+            total_amount = product_of_cart_in_question_pk_all.quantity * product_in_question.discounted_price
         
             product_of_cart_in_question_pk_all.amount = total_amount
             product_of_cart_in_question_pk_all.save()
