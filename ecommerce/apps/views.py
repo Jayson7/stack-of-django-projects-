@@ -80,8 +80,6 @@ def addtocart (request, pk):
             product_of_cart_in_question_pk_all.amount = total_amount
             product_of_cart_in_question_pk_all.save()
        
-            
-     
     else:
         pass
         
@@ -92,13 +90,19 @@ def cart(request):
     product = Product.objects.all()
     
     all_cart_products = CartItem.objects.all()
-    
+   
     context = {}
     context['cart_products_all'] = all_cart_products 
     
     counter = all_cart_products.count()
     context["counter"] = counter
-    context["grandtotal"] = all_cart_products.aggregate(Sum("amount"))
+    context["grandtotal"] = list(all_cart_products.aggregate(Sum("amount")).values())[0]
     grandtotal = context["grandtotal"]
+    
+    grand_total_model =  GrandTotal(
+        created_by= request.user,
+        total = grandtotal,
+    )
+    grand_total_model.save()
     print(grandtotal)
     return render(request, "cart.html", context )

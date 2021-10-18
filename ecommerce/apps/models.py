@@ -50,9 +50,28 @@ class CartItem(models.Model):
     
     # grand total
 class GrandTotal(models.Model):
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE ) 
     total = models.PositiveIntegerField(default=0)
+    
+    def __str__(self):
+           
+        return str(self.total)
+     
    
 
 
     
-    # cart
+    # contact model 
+class Contact(models.Model):
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
+    phone_number = models.IntegerField()
+    email = models.EmailField()
+    message = models.TextField()
+    
+    def __str__(self):
+           
+        return str(self.first_name)
+         
+    
+     
