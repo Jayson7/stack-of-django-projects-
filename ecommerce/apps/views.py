@@ -117,14 +117,18 @@ def contact(request):
     
     counter = all_cart_products.count()
     context["counter"] = counter
-    context["formss"] = ContactForm()
-    formss = context["formss"]
+    
+    formss = ContactForm(request.POST)
     if request.method == 'POST':
+       
+        
+    
         if formss.is_valid:
-            formss.svae()
+            new_forms = formss.save(commit=False)
+            new_forms.save()
             return redirect('/')
         else:
             print("you have started again abi")
             return render(request, "contact.html", context)
-
+    context["formss"] = formss
     return render(request, "contact.html", context)
