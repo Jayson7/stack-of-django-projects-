@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib.auth.models import User 
 from django.db.models import Sum 
-
+from .forms import *
 # Create your views here.
 
 def homepage(request):
@@ -106,3 +106,17 @@ def cart(request):
     grand_total_model.save()
     print(grandtotal)
     return render(request, "cart.html", context )
+
+def contact(request):
+    context = {}
+    
+    context["forms"] = ContactForm()
+    if request.method == 'POST':
+        if forms.is_valid:
+            forms.svae()
+            return redirect('/')
+        else:
+            print("you have started again abi")
+            return render(request, "contact.html", context)
+
+    return render(request, "contact.html", context)

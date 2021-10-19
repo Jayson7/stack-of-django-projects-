@@ -12,5 +12,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('cart', views.cart, name="cart"),
     path('addtocart/<int:pk>', views.addtocart, name="addtocart"),
+    path('contact', views.contact, name="contact"),
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

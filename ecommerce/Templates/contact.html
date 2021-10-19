@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,13 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="{% static 'style.css' %}" />
-
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-        {% block title %}Details - {% for i in product %} {{i.name}} {% endfor %} {% endblock %}
-    </title>
+    <title>{% block title %}Cart - {{request.user}} {% endblock %}</title>
 </head>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -43,7 +36,7 @@
             <a class="nav-link text-white" href="{% url 'cart' %}"
               >Cart
               <i class="fa fa-cart-plus" aria-hidden="true">
-                <sup class="bg-success sup" style="font-size: 20px"
+                <sup style="font-size: 20px" class="bg-success sup rounded"
                   >{{counter}}</sup
                 >
               </i>
@@ -57,11 +50,7 @@
                 <li class="nav-item mr-5">
                     <a class="nav-link text-white" href="#">Logout</a>
                 </li>
-                {% else %}
 
-                <li class="nav-item mr-5">
-                    <a class="nav-link text-white" href="#">Login</a>
-                </li>
                 {% endif %}
             </ul>
         </div>
@@ -69,27 +58,13 @@
 </header>
 
 <body>
-    {% for i in product %}
-    <div class="row">
-        {% for i in product %}
-        <div class="col-md-6 col-sm-6 img-product-details">
-            <img src=" {{i.image.url}}" alt="" srcset="" />
+    <div class="contact">
+        <div class="form-wrapper">
+            {% crsf_token %}
+            <form method="POST">{{forms.as_p}}</form>
+            <button class="btn bntn-success">Submit</button>
         </div>
-        <div class="col-md-6">
-            <div class="container">
-                <h1>{{i.name}}</h1>
-                <h4>{{i.main_price}}</h4>
-                <h4>{{i.discounted_price }}</h4>
-
-                <div class="mt-5">
-                    <div class="btn btn-info">Add to cart</div>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
     </div>
-
-    {% endfor %}
 </body>
 
 </html>
