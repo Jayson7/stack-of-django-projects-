@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %} {% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,60 +9,113 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="{% static 'style.css' %}" />
     <title>{% block title %}Cart - {{request.user}} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'contact.css' %}" />
 </head>
-<header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand ml-2" href="{% url 'home' %}">SHOP </a>
-        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-            <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
-                <li class="nav-item mr-5">
-                    <a class="nav-link text-white" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item mr-5">
-            <a class="nav-link text-white" href="#">Track Order</a>
-                </li>
-                <li class="nav-item mr-5">
-                    <a class="nav-link text-white" href="#">Store</a>
-                </li>
-                <li class="nav-item mr-5">
-                    <a class="nav-link text-white" href="{% url 'contact' %}">Contact</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="{% url 'cart' %}"
-              >Cart
-              <i class="fa fa-cart-plus" aria-hidden="true">
-                <sup style="font-size: 20px" class="bg-success sup rounded"
-                  >{{counter}}</sup
-                >
-              </i>
-            </a>
-                </li>
-                {% if request.user.is_authenicated %}
-
-                <li class="nav-item mr-5">
-                    <a class="nav-link text-white" href="#">request.user</a>
-                </li>
-                <li class="nav-item mr-5">
-                    <a class="nav-link text-white" href="#">Logout</a>
-                </li>
-
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
-</header>
 
 <body>
+    <div class="alert mb-0" role="alert">
+        <div class="row d-flex">
+            <div class="col-sm-6 col-md-6">
+                <div class="phone text-success">
+                    <i class="fa mr-2 fa-phone" aria-hidden="true"></i>
+                    <span>+2348116336975</span>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <div class="icons text-center">
+                    <i class="fa mr-3 fa-facebook-official" aria-hidden="true"></i>
+                    <i class="fa mr-3 fa-twitter" aria-hidden="true"></i>
+                    <i class="fa mr-3 fa-github" aria-hidden="true"></i>
+                    <i class="fa mr-3 fa-bitbucket" aria-hidden="true"></i>
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand ml-2" href="{% url 'home' %}">SHOP<span>ERZ</span>
+        </a>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                    <li class="nav-item mr-5">
+                        <a class="nav-link text-white" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item mr-5">
+              <a class="nav-link text-white" href="#">Track Order</a>
+                    </li>
+                    <li class="nav-item mr-5">
+                        <a class="nav-link text-white" href="#">Store</a>
+                    </li>
+                    <li class="nav-item mr-5">
+                        <a class="nav-link text-white" href="{% url 'contact' %}">Contact</a
+              >
+            </li>
+
+            <li class="nav-item mr-5">
+              <a class="nav-link text-white" href="{% url 'cart' %}"
+                >Cart
+                <i class="fa fa-cart-plus" aria-hidden="true">
+                  <sup class="bg-success sup" style="font-size: 20px"
+                    >{{counter}}</sup
+                  >
+                </i>
+              </a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+
+                    <li class="nav-item mr-5">
+                        <a class="nav-link text-white" href="#">{{request.user}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Logout</a>
+                    </li>
+                    {% endif %} {% if not request.user.is_authenticated %}
+
+                    <li class="nav-item mr-5">
+                        <a class="nav-link text-white" href="#">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </header>
     <div class="contact">
-        <div class="form-wrapper">
-            {% crsf_token %}
-            <form method="POST">{{forms.as_p}}</form>
-            <button class="btn bntn-success">Submit</button>
+        <div class="cont">
+            <div class="container-fluid">
+                <form class="text-white p-1" method="POST">
+                    {% csrf_token %}
+
+                    <div class="form-row row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{ formss.first_name|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{ formss.last_name|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{ formss.email|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{ formss.phone_number|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row row">
+                        <div class="form-group col-md-12 mb-0">
+                            {{ formss.message|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <button class="btn" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </body>

@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps',
     'bootstrap5',
+    'crispy_forms',
+    
    
 ]
 
@@ -101,7 +103,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+# crispy config
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# //////////////////////
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/

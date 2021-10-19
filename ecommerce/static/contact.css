@@ -1,0 +1,28 @@
+/* contact */
+
+body {
+    background-color: rgb(15, 15, 20);
+    overflow: hidden;
+}
+
+.contact {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(15, 15, 20);
+}
+
+.cont {
+    width: 100%;
+    height: auto;
+}
+
+.cont form {
+    margin-top: 10vh;
+}
+
+.cont .btn {
+    background-color: rgb(68, 68, 139);
+}
+
+
+/* ends */

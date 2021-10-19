@@ -109,11 +109,19 @@ def cart(request):
 
 def contact(request):
     context = {}
+      
+    all_cart_products = CartItem.objects.all()
+   
+   
+    context['cart_products_all'] = all_cart_products 
     
-    context["forms"] = ContactForm()
+    counter = all_cart_products.count()
+    context["counter"] = counter
+    context["formss"] = ContactForm()
+    formss = context["formss"]
     if request.method == 'POST':
-        if forms.is_valid:
-            forms.svae()
+        if formss.is_valid:
+            formss.svae()
             return redirect('/')
         else:
             print("you have started again abi")
