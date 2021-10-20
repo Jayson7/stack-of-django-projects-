@@ -178,23 +178,72 @@ header {
 
 .section3 {
     width: 100%;
-    height: 100vh;
+    height: auto;
+}
+
+.section3-wrapper {
+    width: 100%;
+    display: flex;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-basis: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxs {
+    background: rgb(68, 68, 139);
+    height: 300px;
+    margin: 5px;
+    width: 300px;
+}
+
+.section3-wrapper {
+    font-size: 2rem;
+    font: 900;
 }
 
 
 /* footer */
 
 .footer {
-    height: 50vh;
+    height: auto;
+    display: flex;
     width: 100%;
-    background-color: rgb(12, 3, 5);
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-basis: 1;
+}
+
+.footer-box1,
+.footer-box2,
+.footer-box3 {
+    background: rgb(12, 3, 5);
+    text-align: center;
+    width: 400px;
+    margin: 10px;
+    height: 300px;
+}
+
+.footer-box1 {
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-box1 h4 {
+    font-size: 2rem;
+    padding: 5px;
 }
 
 
 /* ends */
-
-
-/* cart.html */
 
 
 /* ends */
