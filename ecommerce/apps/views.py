@@ -86,6 +86,9 @@ def addtocart (request, pk):
         
     return redirect("/")
 
+# cart
+
+from django.db import IntegrityError
 def cart(request):
     product = Product.objects.all()
     
@@ -96,14 +99,23 @@ def cart(request):
     
     counter = all_cart_products.count()
     context["counter"] = counter
-    context["grandtotal"] = list(all_cart_products.aggregate(Sum("amount")).values())[0]
-    grandtotal = context["grandtotal"]
     
-    grand_total_model =  GrandTotal(
-        created_by= request.user,
-        total = grandtotal,
-    )
-    grand_total_model.save()
+    try:
+    
+        context["grandtotal"] = list(all_cart_products.aggregate(Sum("amount")).values())[0]
+    
+        grandtotal = context["grandtotal"]
+        
+        
+        grand_total_model =  GrandTotal(
+            created_by= request.user,
+            total = grandtotal,
+        )
+        grand_total_model.save()
+    except IntegrityError:
+
+        grandtotal =0    
+        context["grandtotal"] = grandtotal 
     print(grandtotal)
     return render(request, "cart.html", context )
 
