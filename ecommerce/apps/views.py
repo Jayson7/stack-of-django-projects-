@@ -26,7 +26,11 @@ def productdetails(request, pk):
     context["counter"]  = counter  
     
     context["product"] = Product.objects.filter(pk = pk)
+    product_viewed = Product.objects.filter(pk=pk).get()
     
+    
+    product_viewed.view_count +=1
+    product_viewed.save()
     return render(request, "productdetails.html", context)
 
 
