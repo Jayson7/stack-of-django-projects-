@@ -193,15 +193,75 @@ header {
 }
 
 .boxs {
-    background: rgb(68, 68, 139);
-    height: 300px;
+    /* background: rgb(68, 68, 139); */
+    height: 150px;
     margin: 5px;
-    width: 300px;
+    width: 150px;
 }
 
-.section3-wrapper {
-    font-size: 2rem;
+.section3-text {
+    font-size: 3rem;
     font: 900;
+}
+
+.section3-text2 {
+    font-size: 1.2rem;
+}
+
+.section3-wrapper .box1 {
+    background: url("/static/logo/1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.section3-wrapper .box2 {
+    background: url("/static/logo/2.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.section3-wrapper .box3 {
+    background: url("/static/logo/3.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.section3-wrapper .box4 {
+    background: url("/static/logo/4.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.section3-wrapper .box5 {
+    background: url("/static/logo/5.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.section3-wrapper .box6 {
+    background: url("/static/logo/6.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.section3-wrapper .box7 {
+    background: url("/static/logo/7.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.section3-wrapper .box8 {
+    background: url("/static/logo/8.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 
@@ -211,6 +271,7 @@ header {
     margin-top: 5vh;
     height: auto;
     display: flex;
+    background-color: rgb(12, 3, 5);
     width: 100%;
     justify-content: space-around;
     align-items: center;
