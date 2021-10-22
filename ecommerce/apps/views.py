@@ -93,6 +93,7 @@ def addtocart (request, pk):
 # cart
 
 from django.db import IntegrityError
+from django.core.exceptions import ObjectDoesNotExist
 def cart(request):
     product = Product.objects.all()
     
@@ -109,13 +110,50 @@ def cart(request):
         context["grandtotal"] = list(all_cart_products.aggregate(Sum("amount")).values())[0]
     
         grandtotal = context["grandtotal"]
+        try:
+            grand_total_check_user = GrandTotal.objects.get().created_by
+            print(grand_total_check_user)
+            grand_total_all = GrandTotal.objects.filter(created_by=grand_total_check_user)
+                
+            if not grand_total_all.exists():
+                
+                grand_total_model =  GrandTotal(
+                    created_by= request.user,
+                    total = grandtotal,
+                )
+                grand_total_model.save()
+            else:
+                grand_total_all.delete()
+                
+                context["grandtotal"] = list(all_cart_products.aggregate(Sum("amount")).values())[0]
         
-        
-        grand_total_model =  GrandTotal(
-            created_by= request.user,
-            total = grandtotal,
-        )
-        grand_total_model.save()
+                grandtotal = context["grandtotal"]
+                grand_total_check_user = GrandTotal.objects.get().created_by
+                grand_total_all = GrandTotal.onbjects.filter(created_by=grand_total_check_user)
+                
+                grand_total_model =  GrandTotal(
+                        created_by= request.user,
+                        total = grandtotal,
+                    )
+                grand_total_model.save()
+            
+        except ObjectDoesNotExist:
+            
+                
+            # grand_total_check_user = GrandTotal.objects.get().created_by
+            # grand_total_all = GrandTotal.onbjects.filter(created_by=grand_total_check_user)
+                
+            # grand_total_all.delete()    
+            context["grandtotal"] = list(all_cart_products.aggregate(Sum("amount")).values())[0]
+            
+            grandtotal = context["grandtotal"]
+                
+            grand_total_model =  GrandTotal(
+                        created_by= request.user,
+                        total = grandtotal,
+                    )
+            grand_total_model.save() 
+            
     except IntegrityError:
 
         grandtotal =0    
@@ -134,8 +172,9 @@ def contact(request):
     counter = all_cart_products.count()
     context["counter"] = counter
     
-    formss = ContactForm(request.POST)
+    formss = ContactForm()
     if request.method == 'POST':
+        formss = ContactForm(request.POST)
        
         
     
