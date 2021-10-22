@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.db.models import Sum 
 from .forms import *
 # Create your views here.
+from django.contrib.auth.models import User
 
 def homepage(request):
     context = {}
@@ -188,3 +189,11 @@ def contact(request):
             
     context["formss"] = formss
     return render(request, "contact.html", context)
+
+# profile page
+
+def profile(request):
+    context = {}
+    
+    
+    return render(request, 'profile.html', context)
