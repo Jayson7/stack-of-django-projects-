@@ -190,10 +190,22 @@ def contact(request):
     context["formss"] = formss
     return render(request, "contact.html", context)
 
-# profile page
 
-def profile(request):
+# register page
+
+def register(request):
     context = {}
-    
-    
-    return render(request, 'profile.html', context)
+    forms = UserForm()
+    context['form'] = forms
+    if request.method == "POST":
+        forms = UserForm(request.POST)
+        if forms.is_valid():
+            new_forms = forms.save(commit=False)
+            new_forms.save()
+            return redirect('/')
+        else:
+            print("you have started again abi")
+            return render(request, "registration/register.html", context)
+        
+     
+    return render(request, 'register.html', context)

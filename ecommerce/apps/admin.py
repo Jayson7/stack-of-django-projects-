@@ -8,6 +8,8 @@ admin.site.register(Categories)
 admin.site.register(CartItem)
 admin.site.register(GrandTotal)
 admin.site.register(Contact)
+admin.site.register(CustomerProfile)
+
 
 
 

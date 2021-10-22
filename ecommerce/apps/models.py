@@ -74,16 +74,16 @@ class Contact(models.Model):
         return str(self.first_name)
 
     
-class Profile(models.Model):
+class CustomerProfile(models.Model):
     
-    first_name = models.CharField(max_length=200, default=User.first_name)
-    last_name = models.CharField(max_length=200, default=User.last_name)
-    phone_number = models.IntegerField(max_length=11)
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
+    phone_number = models.IntegerField()
     email = models.EmailField()
     picture = models.ImageField(upload_to='profile_pics')
     date_joined = models.DateField(auto_now_add=True)
-    username = models.CharField(max_length=300, default=User.username)
-    
+    username = models.CharField(max_length=300)
+    address = models.CharField(max_length = 500)
     
     def __str__(self):
            
