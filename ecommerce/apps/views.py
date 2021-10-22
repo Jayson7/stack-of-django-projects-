@@ -176,8 +176,6 @@ def contact(request):
     formss = ContactForm()
     if request.method == 'POST':
         formss = ContactForm(request.POST)
-       
-        
     
         if formss.is_valid:
             new_forms = formss.save(commit=False)
@@ -195,8 +193,8 @@ def contact(request):
 
 def register(request):
     context = {}
-    forms = UserForm()
-    context['form'] = forms
+    formss = UserForm()
+    
     if request.method == "POST":
         forms = UserForm(request.POST)
         if forms.is_valid():
@@ -205,7 +203,7 @@ def register(request):
             return redirect('/')
         else:
             print("you have started again abi")
-            return render(request, "registration/register.html", context)
+            
         
-     
-    return render(request, 'register.html', context)
+    context['formss'] = formss 
+    return render(request, 'registration/register.html', context)
