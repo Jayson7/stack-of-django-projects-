@@ -63,28 +63,33 @@
                 <li class="nav-item mr-5">
                     <a class="nav-link text-white" href="#">Login</a>
                 </li>
-                {% endif %}
-            </ul>
-        </div>
+                <li class="nav-item mr-5">
+                    <a class="nav-link text-white" href="{% url 'register' %}">Register</a
+            >
+          </li>
+          {% endif %}
+        </ul>
+      </div>
     </nav>
-</header>
+  </header>
 
-<body>
+  <body>
     <div class="product-wraps">
+      {% for i in product %}
+      <div class="row">
         {% for i in product %}
-        <div class="row">
-            {% for i in product %}
-            <div class="col-md-6 col-sm-6 img-product-details">
-                <img src=" {{i.image.url}}" alt="" srcset="" />
-            </div>
-            <div class="col-md-6">
-                <div class="containers">
-                    <h1>{{i.name}}</h1>
-                    <h4 class="text-warming"><strike>{{i.main_price}}</strike></h4>
-                    <h4 class="text-success">{{i.discounted_price }}</h4>
+        <div class="col-md-6 col-sm-6 img-product-details">
+          <img src=" {{i.image.url}}" alt="" srcset="" />
+        </div>
+        <div class="col-md-6">
+          <div class="containers">
+            <h1>{{i.name}}</h1>
+            <h4 class="text-warming"><strike>{{i.main_price}}</strike></h4>
+            <h4 class="text-success">{{i.discounted_price }}</h4>
 
-                    <div class="mt-2">
-                        <a href="{% url 'addtocart' i.pk %}" class="btn btn-info">Add to cart</a
+            <div class="mt-2">
+              <a href="{% url 'addtocart' i.pk %}" class="btn btn-info"
+                >Add to cart</a
               >
             </div>
             <br />
