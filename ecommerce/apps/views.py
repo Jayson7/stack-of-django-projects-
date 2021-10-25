@@ -16,9 +16,12 @@ def homepage(request):
     context = {}
 
     all_cart_products = CartItem.objects.all()
-    
-    counter = all_cart_products.count()
-    context["counter"] = counter
+    if request.user.is_authenticated:
+            
+        counter = all_cart_products.count()
+        context["counter"] = counter
+    else:
+        pass
     # context = {}
     product = Product.objects.all()[:6]
     context["product"] = product
@@ -26,15 +29,19 @@ def homepage(request):
 
 # product details view
 # login is requried
+
 @login_required(login_url='/login/')
 def productdetails(request, pk):
     context = {}
     
     all_cart_products = CartItem.objects.all()
     
-    counter = all_cart_products.count()
-    context["counter"]  = counter  
-    
+    if request.user.is_authenticated:
+            
+        counter = all_cart_products.count()
+        context["counter"] = counter
+    else:
+        pass
     context["product"] = Product.objects.filter(pk = pk)
     product_viewed = Product.objects.filter(pk=pk).get()
     
@@ -49,8 +56,12 @@ def addtocart (request, pk):
     context ={}
     all_cart_products = CartItem.objects.all()
     
-    counter = all_cart_products.count()
-    context["counter"] = counter
+    if request.user.is_authenticated:
+            
+        counter = all_cart_products.count()
+        context["counter"] = counter
+    else:
+        pass
     cartitemall = CartItem.objects.all()
     products = Product 
     productall = Product.objects.all()
@@ -113,9 +124,12 @@ def cart(request):
     context = {}
     context['cart_products_all'] = all_cart_products 
     
-    counter = all_cart_products.count()
-    context["counter"] = counter
-    
+    if request.user.is_authenticated:
+            
+        counter = all_cart_products.count()
+        context["counter"] = counter
+    else:
+        pass
     try:
     
         context["grandtotal"] = list(all_cart_products.aggregate(Sum("amount")).values())[0]
@@ -180,9 +194,12 @@ def contact(request):
    
     context['cart_products_all'] = all_cart_products 
     
-    counter = all_cart_products.count()
-    context["counter"] = counter
-    
+    if request.user.is_authenticated:
+            
+        counter = all_cart_products.count()
+        context["counter"] = counter
+    else:
+        pass
     formss = ContactForm()
     if request.method == 'POST':
         formss = ContactForm(request.POST)
