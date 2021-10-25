@@ -5,8 +5,14 @@ from django.db.models import Sum
 from .forms import *
 # Create your views here.
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from django.db import IntegrityError
+from django.core.exceptions import ObjectDoesNotExist
 
+
+# home page config
 def homepage(request):
+
     context = {}
 
     all_cart_products = CartItem.objects.all()
@@ -18,6 +24,9 @@ def homepage(request):
     context["product"] = product
     return render(request, "index.html", context)
 
+# product details view
+# login is requried
+@login_required(login_url='/login/')
 def productdetails(request, pk):
     context = {}
     
@@ -34,7 +43,8 @@ def productdetails(request, pk):
     product_viewed.save()
     return render(request, "productdetails.html", context)
 
-
+# add to cart view controller 
+@login_required(login_url='/login/')
 def addtocart (request, pk):
     context ={}
     all_cart_products = CartItem.objects.all()
@@ -91,10 +101,10 @@ def addtocart (request, pk):
         
     return redirect("/")
 
+
 # cart
 
-from django.db import IntegrityError
-from django.core.exceptions import ObjectDoesNotExist
+@login_required(login_url='/login/')
 def cart(request):
     product = Product.objects.all()
     
