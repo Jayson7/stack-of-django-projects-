@@ -9,11 +9,17 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
+// When the user activates the modal
+var error = btn.innerHTML.search("WTF");
+var success = btn.innerHTML.search(
+    "Your account has been created successfully!"
+);
+if (error) {
     modal.style.display = "block";
-};
-
+}
+if (success) {
+    modal.style.display = "block";
+}
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
