@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .models import *
 from django.contrib.auth.models import User 
 from django.db.models import Sum 
@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 from django.core.exceptions import ObjectDoesNotExist
-
+from django.contrib import messages
 
 # home page config
 def homepage(request):
@@ -227,10 +227,13 @@ def register(request):
         if forms.is_valid():
             new_forms = forms.save(commit=False)
             new_forms.save()
-            return redirect('/')
+            messages.success(request, 'Your account has been created successfully!')
         else:
+            print(forms.errors)
+            messages.error(request, 'WTF!')
+
             print("you have started again abi")
-            
+            # return HttpResponse(forms.errors.values())
         
     context['formss'] = formss 
     return render(request, 'registration/register.html', context)
