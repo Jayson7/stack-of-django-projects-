@@ -87,7 +87,9 @@
               <td>{{i.quantity}}</td>
               <td>{{i.amount }}</td>
               <td>
-                <div class="btn btn-warning">Remove</div>
+                <a href="{% url 'deletecart' i.pk %}" class="btn btn-warning"
+                  >Remove</a
+                >
               </td>
             </tr>
 
@@ -102,8 +104,9 @@
           </tbody>
         </table>
         <div class="btn btn-success">Checkout</div>
-        <div class="btn btn-danger">Clear Cart</div>
-      </div>
-    </div>
-  </body>
+        <a href="{% url 'clearcart' %}" class="btn btn-danger">Clear Cart</a>
+        </div>
+        </div>
+        </body>
+
 </html>

@@ -50,7 +50,9 @@ def productdetails(request, pk):
     product_viewed.save()
     return render(request, "productdetails.html", context)
 
+
 # add to cart view controller 
+
 @login_required(login_url='/login/')
 def addtocart (request, pk):
     context ={}
@@ -186,6 +188,29 @@ def cart(request):
     print(grandtotal)
     return render(request, "cart.html", context )
 
+#  delete cart item view
+def deletecart(request, pk):
+    
+    cartitem = CartItem.objects.all()
+    cartitem_pk = cartitem.filter(pk=pk)
+    print(cartitem_pk)
+    cartitem_pk.delete()
+    
+    return redirect("cart")
+
+# clear cart view 
+
+def clearcart(request):
+    
+    cartitem = CartItem.objects.all()
+    
+    print(cartitem)
+    cartitem.delete()
+    
+    return redirect("cart")
+
+
+
 def contact(request):
     context = {}
       
@@ -231,7 +256,7 @@ def register(request):
         else:
             print(forms.errors)
             messages.error(request, 'WTF!')
-
+            context['errors'] = forms.errors 
             print("you have started again abi")
             # return HttpResponse(forms.errors.values())
         

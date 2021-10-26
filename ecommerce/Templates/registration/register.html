@@ -173,8 +173,10 @@
         {% for i in messages %}
 
         <p id="myBtn">{{i}}</p>
+        {% if errors %}
 
-        {% endfor %}
+        <p>{{errors}}</p>
+        {% endif %} {% endfor %}
       </div>
     </div>
 

@@ -15,6 +15,9 @@ urlpatterns = [
     path('contact', views.contact, name="contact"),
     path('', include('django.contrib.auth.urls')),
     path('register', views.register, name="register"),
+    path('deletcart/<int:pk>', views.deletecart, name="deletecart"),
+    path('clear', views.clearcart, name="clearcart"),
+    
     
     
     
