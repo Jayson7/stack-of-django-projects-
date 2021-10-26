@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,16 +19,29 @@
 </head>
 
 <body>
-
     <div class="wrapper">
-
         <div class="row">
-            <div class="col-4"> </div>
-            <div class="col-8"></div>
+            <div class="
+            col-lg-4 col-sm-6
+            bg-dark
+            imgs
+            d-flex
+            align-items-center
+            justify-content-center
+          ">
+                <div class="rounded">
+                    <img src="{% static 'logo/profile.png' %}" alt="profile image" srcset="" />
+                </div>
+            </div>
+            <div class="col-lg-8 col-sm-6">
+                <div class="row">
+                    <div class="col">
+                        <h4>First Name: {{ check.full_name }}</h4>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
-
 </body>
 
 </html>
