@@ -210,6 +210,7 @@ def clearcart(request):
     return redirect("cart")
 
 
+# contact view
 
 def contact(request):
     context = {}
@@ -262,3 +263,9 @@ def register(request):
         
     context['formss'] = formss 
     return render(request, 'registration/register.html', context)
+
+# profile page for all users 
+def profilepage(request):
+    
+    context = {}
+    return render(request, 'profile.html', context )
