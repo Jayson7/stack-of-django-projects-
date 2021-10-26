@@ -269,6 +269,6 @@ def profilepage(request):
     usernames = request.user
     context = {}
     check = User.objects.filter(username=usernames).get()
-    print(check.last_name)
+    print(check)
     context['check'] = check
     return render(request, 'profile.html', context )
