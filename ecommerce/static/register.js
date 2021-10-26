@@ -9,6 +9,8 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
+button = document.getElementById("u");
+
 // When the user activates the modal
 var error = btn.innerHTML.search("WTF");
 var success = btn.innerHTML.search(
@@ -20,6 +22,7 @@ if (error) {
 if (success) {
     modal.style.display = "block";
 }
+
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
