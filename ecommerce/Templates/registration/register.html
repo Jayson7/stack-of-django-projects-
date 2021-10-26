@@ -92,6 +92,7 @@
 
     <div class="register">
       <div class="reg-wrapper">
+        <h3 class="text-center mb-2">Create An Account</h3>
         <form
           enctype="multipart/form-data"
           method="post"
@@ -133,6 +134,30 @@
             <button class="btn" id="u" type="submit">Submit</button>
           </div>
         </form>
+        <div
+          class="
+            mt-2
+            d-flex
+            text-center
+            align-items-center
+            justify-content-center
+          "
+        >
+          <div class="col-6">
+            Already own an Account?
+            <a
+              href="{% url 'login' %}"
+              class="text-decoration-none"
+              rel="noopener noreferrer"
+              >Login</a
+            >
+          </div>
+          <div class="col-6">
+            <a href="" class="text-decoration-none" rel="noopener noreferrer">
+              Forgot Password?</a
+            >
+          </div>
+        </div>
       </div>
     </div>
     <!-- alert messages -->
