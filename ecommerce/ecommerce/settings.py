@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-c$a4h5fk^d6k=9b*j%@%wm8t846&f85^ajgwn1td$+(=0kw*li
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['shoperzs.herokuapp.com']
+ALLOWED_HOSTS = ["shoperzs.herokuapp.com"]
 
 
 # Application definition
@@ -38,8 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps',
-    'whitenoise',
-    'gunicorn',
     'crispy_forms',
     
    
@@ -145,11 +143,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # authentication cnfig
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # ends
 # messages configurations 
 
 
 
 # ends
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
